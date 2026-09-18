@@ -9,59 +9,51 @@
 ========================================================= */
 
 :root {
-    /* =====================================================
-       BRAND COLORS
-       ===================================================== */
+    /* BRAND COLORS */
     --yellow: #F8CF27;
     --yellow-dark: #D4A300;
 
-    --green: #2ECC71;
-    --green-dark: #01BE60;
+    --green: #01BE60;
+    --green-dark: #008F47;
 
-    --cyan: #16D0F0;
-    --cyan-dark: #0AC1E1;
+    --cyan: #0AC1E1;
+    --cyan-dark: #0896AF;
 
-    --pink: #F2ADC4;
-    --pink-dark: #ECC4D1;
+    --pink: #ECC4D1;
+    --pink-dark: #C990A2;
 
+    /* SOFT BRAND COLORS */
+    --yellow-soft: #FFF8D6;
+    --green-soft: #E8F9F0;
+    --cyan-soft: #E6FAFC;
+    --pink-soft: #FAF0F3;
 
-    /* =====================================================
-       SOFT / SURFACE COLORS
-       ===================================================== */
-    --yellow-soft: rgba(248, 207, 39, 0.12);
-    --green-soft: rgba(46, 204, 113, 0.12);
-    --cyan-soft: rgba(22, 208, 240, 0.12);
-    --pink-soft: rgba(242, 173, 196, 0.12);
-
-
-    /* =====================================================
-       NEUTRALS & BACKGROUNDS
-       ===================================================== */
-    --black: #0D0D0E;
-    --dark: #16161A;
-    --dark-soft: #222228;
+    /* NEUTRALS & TEXT */
+    --black: #1A1A1A;
+    --dark: #2B2B2B;
+    --dark-soft: #4A4A4A;
 
     --white: #FFFFFF;
-    --off-white: #F0F0F5;
+    --off-white: #FAF9F5;
 
-    --gray-light: #2A2A32;
-    --gray: #A0A0AB;
-    --gray-dark: #C4C4CD;
+    --gray-light: #F2F0E9;
+    --gray: #777777;
+    --gray-dark: #4A4A4A;
 
-
-    /* =====================================================
-       SEMANTIC ASSIGNMENTS
-       ===================================================== */
+    /* SEMANTIC COLORS */
     --accent: var(--yellow);
+    --accent-dark: var(--yellow-dark);
+
     --secondary: var(--green);
+    --secondary-dark: var(--green-dark);
+
     --highlight: var(--cyan);
+    --highlight-dark: var(--cyan-dark);
+
     --decorative: var(--pink);
 
-
-    /* =====================================================
-       UI STRUCTURE
-       ===================================================== */
-    --border: #2A2A32;
+    /* UI */
+    --border: #E5E0D3;
     --container: 1200px;
     --transition: 0.3s ease;
 }
@@ -721,9 +713,9 @@ ul {
 
 .intro {
 
-    background: var(--black);
+    background: var(--white);
 
-    color: var(--white);
+    color: var(--black);
 }
 
 .intro h2 span {
@@ -742,7 +734,7 @@ ul {
 
 .intro-content .section-eyebrow {
 
-    color: var(--green);
+    color: var(--green-dark);
 }
 
 .intro-content h2 {
@@ -760,7 +752,7 @@ ul {
 
     margin: 30px auto 0;
 
-    color: var(--gray-dark);
+    color: var(--dark-soft);
 
 
     font-size: 1rem;
@@ -808,7 +800,7 @@ ul {
         "Barlow Condensed",
         sans-serif;
 
-    color: var(--yellow);
+    color: var(--yellow-dark);
 
     font-size: 2.5rem;
 
@@ -817,7 +809,12 @@ ul {
 
 .intro-stat span {
 
-    color: var(--gray);
+    color: rgba(
+        23,
+        23,
+        23,
+        0.68
+    );
 
     font-size: 0.75rem;
 
@@ -835,24 +832,16 @@ ul {
 
 .how-it-works {
 
-    background: var(--dark);
-    color: var(--white);
-}
-
-.how-it-works .section-eyebrow {
-    color: var(--green);
+    background: var(--green-soft);
+    color: var(--black);
 }
 
 .how-it-works .section-heading h2 {
-    color: var(--white);
+    color: var(--dark);
 }
 
 .how-it-works .section-heading h2 span {
-    color: var(--green);
-}
-
-.how-it-works .section-heading > p {
-    color: var(--gray-dark);
+    color: var(--green-dark);
 }
 
 .steps-grid {
@@ -877,8 +866,8 @@ ul {
 
     padding: 35px;
 
-    background: var(--dark-soft);
-    color: var(--white);
+    background: var(--off-white);
+    color: var(--dark);
 
     transition:
         background var(--transition),
@@ -887,10 +876,10 @@ ul {
 
 .step-card:hover {
 
-    background: var(--yellow-soft);
+    background: var(--black);
 
     color: var(--white);
-    border-color: var(--yellow);
+
     transform: translateY(-5px);
 
     z-index: 2;
@@ -903,7 +892,7 @@ ul {
     top: 25px;
     right: 25px;
 
-    color: var(--yellow);
+    color: var(--yellow-dark);
 
     font-family:
         "Barlow Condensed",
@@ -918,7 +907,12 @@ ul {
 
 .step-card:hover .step-number {
 
-    color: var(--yellow-dark);
+    color: rgba(
+        255,
+        255,
+        255,
+        0.15
+    );
 }
 
 .step-icon {
@@ -934,7 +928,7 @@ ul {
 
     background: var(--yellow-soft);
 
-    color: var(--cyan);
+    color: var(--yellow-dark);
     border: 1px solid var(--yellow);
 
     font-size: 1.1rem;
@@ -944,9 +938,27 @@ ul {
         color var(--transition);
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px;       /* Ajusta la altura según el tamaño de tu barra de navegación */
+    width: auto;        /* Mantiene la proporción de la imagen */
+    object-fit: contain;
+    transition: transform var(--transition);
+}
+
+/* Efecto suave al pasar el mouse (opcional) */
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
 .step-card:hover .step-icon {
     background: var(--yellow-soft);
-    color: var(--white);
+    color: var(--black);
     border-color: var(--yellow);
 }
 
@@ -956,7 +968,7 @@ ul {
 
 .step-card:nth-child(2):hover .step-icon {
     background: var(--yellow-soft);
-    color: var(--white);
+    color: var(--black);
     border-color: var(--yellow);
 }
 
@@ -966,7 +978,7 @@ ul {
 
 .step-card:nth-child(3):hover .step-icon {
     background: var(--yellow-soft);
-    color: var(--white);
+    color: var(--black);
     border-color: var(--yellow);
 }
 
@@ -976,7 +988,7 @@ ul {
 
 .step-card:nth-child(4):hover .step-icon {
     background: var(--yellow-soft);
-    color: var(--white);
+    color: var(--black);
     border-color: var(--yellow);
 }
 
@@ -993,12 +1005,12 @@ ul {
     line-height: 1;
 
     text-transform: uppercase;
-    color: var(--white);
+    color: var(--dark);
 }
 
 .step-card p {
 
-    color: var(--gray-dark);
+    color: var(--dark-soft);
 
     font-size: 0.83rem;
 
@@ -1029,17 +1041,8 @@ ul {
 
 .rentals {
 
-    background: var(--black);
-    color: var(--white);
-}
-
-
-.rentals .section-eyebrow {
-    color: var(--yellow);
-}
-
-.rentals .section-heading > p {
-    color: var(--gray-dark);
+    background: var(--off-white);
+    color: var(--black);
 }
 
 .rentals-grid {
@@ -1053,19 +1056,19 @@ ul {
 }
 
 .rentals .section-heading h2 {
-    color: var(--white);
+    color: var(--dark);
 }
 
 .rentals .section-heading h2 span {
-    color: var(--yellow);
+    color: var(--yellow-dark);
 }
 
 .rental-card {
 
-    background: var(--dark-soft);
+    background: var(--white);
 
     border: 1px solid var(--border);
-    color: var(--white);
+    color: var(--dark);
     transition:
         transform var(--transition),
         box-shadow var(--transition);
@@ -1133,7 +1136,7 @@ ul {
 
 .rentals .rental-price span,
 .rentals .rental-price small {
-    color: var(--gray);
+    color: var(--dark-soft);
 }
 
 .rental-content {
@@ -1165,14 +1168,13 @@ ul {
     line-height: 0.9;
 
     text-transform: uppercase;
-    color: var(--white);
 }
 
 .rental-content > p {
 
     min-height: 70px;
 
-    color: var(--grey-dark);
+    color: var(--dark-soft);
 
     font-size: 0.82rem;
 }
@@ -1217,7 +1219,6 @@ ul {
     font-size: 2.5rem;
 
     line-height: 0.9;
-    color: var(--yellow);
 }
 
 .rental-price small {
@@ -1235,7 +1236,7 @@ ul {
 
     gap: 7px;
 
-    color: var(--cyan);
+    color: var(--cyan-dark);
 
     font-size: 0.67rem;
 
@@ -1246,7 +1247,7 @@ ul {
 
 .rental-bottom > a:hover {
 
-    color: var(--cyan-dark);
+    color: var(--green-dark);
 }
 
 .rentals-note {
@@ -1261,7 +1262,7 @@ ul {
 
     gap: 10px;
 
-    color: var(--gray-dark);
+    color: var(--dark-soft);
 
     text-align: center;
 
@@ -1272,12 +1273,16 @@ ul {
 
     margin-top: 4px;
 
-    color: var(--cyan);
+    color: var(--cyan-dark);
 }
 
 .rentals-note p {
-    color: var(--gray-dark);
+
     max-width: 600px;
+}
+
+.rentals .section-eyebrow {
+    color: var(--yellow-dark);
 }
 
 /* =========================================================
@@ -1286,9 +1291,9 @@ ul {
 
 .events {
 
-    background: var(--dark);
+    background: var(--cyan-soft);
 
-    color: var(--white);
+    color: var(--black);
 }
 
 .events-grid {
@@ -1309,12 +1314,12 @@ ul {
 }
 
 .events-content h2 span {
-    color: var(--green);
+    color: var(--green-dark);
 }
 
 .events-content .section-eyebrow {
 
-    color: var(--cyan);
+    color: var(--cyan-dark);
 }
 
 .events-content .primary-button {
@@ -1333,7 +1338,8 @@ ul {
 
     margin: 30px 0;
 
-    color: var(--gray-dark);
+    color: var(--dark-soft
+    );
 
     font-size: 0.95rem;
 }
@@ -1367,9 +1373,7 @@ ul {
 
     gap: 20px;
 
-    background: var(--dark-soft);
-    color: var(--green-dark);
-    border: 1px solid var(--border);
+    background: var(--white);
 
     transition:
         background var(--transition);
@@ -1377,23 +1381,15 @@ ul {
 
 .event-card:hover {
 
-    background: var(--cyan);
+    background: var(--yellow-soft);
     transform: translateY(-4px);
-    color: red;
-}
-
-.event-card:hover h3,
-.event-card:hover p,
-.event-card:hover > i {
-
-    color: var(--black);
 }
 
 .event-card > i {
 
     width: 40px;
 
-    color: var(--cyan);
+    color: var(--green);
 
     font-size: 1.2rem;
 }
@@ -1409,13 +1405,13 @@ ul {
     font-size: 1.55rem;
 
     line-height: 1;
-    color: var(--white);
+
     text-transform: uppercase;
 }
 
 .event-card p {
 
-    color: var(--gray-dark);
+    color: var(--dark-soft);
     font-size: 0.72rem;
 }
 
@@ -1426,24 +1422,16 @@ ul {
 
 .why-us {
 
-    background: var(--black);
-    color: var(--white);
-}
-
-.why-us .section-eyebrow {
-    color: var(--pink);
+    background: var(--yellow-soft);
+    color: var(--black);
 }
 
 .why-us .section-heading h2 {
-    color: var(--white);
+    color: var(--dark);
 }
 
 .why-us .section-heading h2 span {
-    color: var(--green);
-}
-
-.why-us .section-heading > p {
-    color: var(--gray-dark);
+    color: var(--green-dark);
 }
 
 .benefits-grid {
@@ -1460,9 +1448,9 @@ ul {
 
     padding: 35px 28px;
 
-    background: var(--dark-soft);
+    background: var(--white);
 
-    color: var(--white);
+    color: var(--dark);
 
     border: 1px solid var(--border);
 
@@ -1483,7 +1471,7 @@ ul {
             0.07
         );
 
-        border-color: var(--pink-dark);
+        border-color: var(--cyan-dark);
     transform: translateY(-5px);
 }
 
@@ -1498,10 +1486,10 @@ ul {
 
     place-items: center;
 
-    background: var(--pink-soft);
+    background: var(--cyan-soft);
 
-    color: var(--pink);
-    border: 1px solid var(--pink-dark);
+    color: var(--cyan-dark);
+    border: 1px solid var(--cyan-dark);
 }
 
 .benefit-card h3 {
@@ -1517,12 +1505,12 @@ ul {
     line-height: 1;
 
     text-transform: uppercase;
-    color: var(--white);
+    color: var(--dark);
 }
 
 .benefit-card p {
 
-    color: var(--gray-dark);
+    color: var(--dark-soft);
 
     font-size: 0.8rem;
 }
@@ -1534,8 +1522,8 @@ ul {
 
 .gallery {
 
-    background: var(--dark);
-    color: var(--white);
+    background: var(--off-white);
+    color: var(--black);
 }
 
 .gallery-grid {
@@ -1592,24 +1580,24 @@ ul {
    ========================================================= */
 
 .gallery {
-    background: var(--dark);
-    color: var(--white);
+    background: var(--off-white);
+    color: var(--black);
 }
 
 .gallery .section-eyebrow {
-    color: var(--green);
+    color: var(--cyan-dark);
 }
 
 .gallery .section-heading h2 {
-    color: var(--white);
+    color: var(--dark);
 }
 
 .gallery .section-heading h2 span {
-    color: var(--green);
+    color: var(--green-dark);
 }
 
 .gallery .gallery-item {
-    background: var(--dark-soft);
+    background: var(--white);
     border: 1px solid var(--border);
 }
 
@@ -1752,53 +1740,49 @@ ul {
    ========================================================= */
 
 .faq {
-    background: var(--black);
-    color: var(--white);
+    background: var(--pink-soft);
+    color: var(--black);
 }
 
 .faq .section-eyebrow {
-    color: var(--pink);
+    color: var(--pink-dark);
 }
 
 .faq .faq-heading h2 {
-    color: var(--white);
+    color: var(--dark);
 }
 
 .faq .faq-heading h2 span {
-    color: var(--green);
+    color: var(--green-dark);
 }
 
 .faq .faq-heading > p {
-    color: var(--gray-dark);
+    color: var(--dark-soft);
 }
 
 .faq .faq-item {
-    background: var(--dark-soft);
-    border-radius: 10px;
-    overflow: hidden;
+    background: var(--off-white);
     border: 1px solid var(--border);
 }
 
 .faq .faq-question {
-    color: var(--white);
-    padding: 20px 24px
+    color: var(--dark);
 }
 
 .faq .faq-question i {
-    color: var(--cyan);
+    color: var(--pink-dark);
 }
 
 .faq .faq-answer {
-    color: var(--gray-dark);
-    padding: 0 24px 2px;
+    color: var(--dark-soft);
 }
 
 .faq .faq-item:hover {
-    border-color: var(--pink-dark);
+    border-color: var(--pink);
 }
 
 .faq .faq-item.active {
-    border-color: var(--pink);
+    border-color: var(--pink-dark);
 }
 
 /* =========================================================
@@ -1889,18 +1873,17 @@ ul {
 
     margin: 30px auto;
 
-    color: var(--off-white);
+    color: rgba(
+        255,
+        255,
+        255,
+        0.7
+    );
 }
 
 .booking-content .primary-button {
-    background: var(--yellow);
-    color: var(--black);
-    margin: 0 auto;
-}
 
-.booking-cta .primary-button:hover {
-    background: var(--yellow-dark);
-    color: var(--black);
+    margin: 0 auto;
 }
 
 
@@ -1931,7 +1914,12 @@ ul {
     padding-bottom: 60px;
 
     border-bottom:
-        1px solid va(--border);
+        1px solid rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
 }
 
 .footer-brand > p {
@@ -1976,7 +1964,7 @@ ul {
 
 .social-links a:hover {
 
-    background: var(--yellow);
+    background: var(--accent);
 
     color: var(--black);
 }
@@ -2043,7 +2031,7 @@ ul {
 
 .footer-bottom a:hover {
 
-    color: var(--yellow);
+    color: var(--white);
 }
 
 
