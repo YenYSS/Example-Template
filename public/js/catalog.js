@@ -14,6 +14,22 @@ const estimateTotalNote = document.querySelector(".estimate-total p");
 let activeCategory = "all";
 
 // =====================================================
+// GET PRODUCT CONTENT BY LANGUAGE
+// =====================================================
+
+function getProductText(product, field) {
+
+    if (
+        currentLanguage === "es" &&
+        product[`${field}Es`]
+    ) {
+        return product[`${field}Es`];
+    }
+
+    return product[field];
+}
+
+// =====================================================
 // CATALOG STATE
 // =====================================================
 
@@ -21,7 +37,9 @@ let selectedItems =
     JSON.parse(
         localStorage.getItem("rafitasSelectedItems")
     ) || {};
-let eventDate = "";
+
+let eventDate =
+    localStorage.getItem("rafitasEventDate") || "";
 
 const rentalSettings = {
     deliverySetup: 20
@@ -30,7 +48,12 @@ const rentalSettings = {
 const eventDateInput =
     document.getElementById("event-date");
 
+const guestCountInput =
+    document.getElementById("guest-count");
+
+
 if (eventDateInput) {
+
     const today = new Date();
 
     const localToday = new Date(
@@ -42,14 +65,45 @@ if (eventDateInput) {
 
     eventDateInput.min = localToday;
 
+    if (eventDate) {
+        eventDateInput.value = eventDate;
+    }
+
     eventDateInput.addEventListener("change", () => {
-        eventDate = eventDateInput.value;
+
+        eventDate =
+            eventDateInput.value;
+
+        localStorage.setItem(
+            "rafitasEventDate",
+            eventDate
+        );
     });
 }
 
-// =====================================================
-// RENDER PRODUCTS
-// =====================================================
+
+if (guestCountInput) {
+
+    const savedGuestCount =
+        localStorage.getItem(
+            "rafitasGuestCount"
+        );
+
+    if (savedGuestCount) {
+        guestCountInput.value =
+            savedGuestCount;
+    }
+
+    guestCountInput.addEventListener("input", () => {
+
+        localStorage.setItem(
+            "rafitasGuestCount",
+            guestCountInput.value
+        );
+    });
+}
+
+
 
 // =====================================================
 // RENDER PRODUCTS
@@ -103,6 +157,21 @@ function renderProducts(productList) {
     // Generate product cards
     productList.forEach(product => {
 
+        const productName =
+            getProductText(product, "name");
+
+        const productCategory =
+            getProductText(product, "categoryLabel");
+
+        const fromText =
+            getTranslation("catalog.products.from");
+
+        const perText =
+            getTranslation("catalog.products.per");
+
+        const quantityText =
+            getTranslation("catalog.products.quantity");
+
         const card = document.createElement("article");
 
         card.className = "product-card";
@@ -126,23 +195,24 @@ function renderProducts(productList) {
             <div class="product-info">
 
                 <span class="product-category">
-                    ${product.categoryLabel}
+                    ${productCategory}
                 </span>
 
                 <h3>
-                    ${product.name}
+                    ${productName}
                 </h3>
 
                 <p class="product-price">
-                    From <strong>$${product.price.toFixed(2)}</strong>
-                    per ${product.unit}
+                    ${fromText}
+                    <strong>$${product.price.toFixed(2)}</strong>
+                    ${perText} ${product.unit}
                 </p>
 
 
                 <div class="product-actions">
 
                     <span class="quantity-label">
-                        Quantity
+                        ${quantityText}
                     </span>
 
                     <div class="quantity-control">
@@ -396,14 +466,39 @@ function renderSelectedItems(subtotal, deliverySetup) {
         Object.keys(selectedItems);
 
 
-    // Empty state
+    // =================================================
+    // TRANSLATIONS
+    // =================================================
+
+    const selectedItemsText =
+        getTranslation("catalog.estimate.selectedItems");
+
+    const emptyTitle =
+        getTranslation("catalog.estimate.emptyTitle");
+
+    const emptyDescription =
+        getTranslation("catalog.estimate.emptyDescription");
+
+    const rentalSubtotal =
+        getTranslation("catalog.estimate.rentalSubtotal");
+
+    const deliverySetupText =
+        getTranslation("catalog.estimate.deliverySetup");
+
+
+    // =================================================
+    // EMPTY STATE
+    // =================================================
+
     if (selectedProductIds.length === 0) {
 
         selectedItemsContainer.innerHTML = `
 
             <div class="estimate-items-header">
 
-                <h3>Selected items</h3>
+                <h3>
+                    ${selectedItemsText}
+                </h3>
 
                 <span>0</span>
 
@@ -421,11 +516,12 @@ function renderSelectedItems(subtotal, deliverySetup) {
 
                 </div>
 
-                <p>Your estimate is waiting</p>
+                <p>
+                    ${emptyTitle}
+                </p>
 
                 <span>
-                    Select rental items from the catalog
-                    and we'll keep track of them here.
+                    ${emptyDescription}
                 </span>
 
             </div>
@@ -436,15 +532,26 @@ function renderSelectedItems(subtotal, deliverySetup) {
     }
 
 
-    // Selected items
+    // =================================================
+    // SELECTED ITEMS
+    // =================================================
+
     selectedItemsContainer.innerHTML = `
 
         <div class="estimate-items-header">
 
-            <h3>Selected items</h3>
+            <h3>
+                ${selectedItemsText}
+            </h3>
 
-            <span>${Object.values(selectedItems)
-                .reduce((total, quantity) => total + quantity, 0)}</span>
+            <span>
+                ${Object.values(selectedItems)
+                    .reduce(
+                        (total, quantity) =>
+                            total + quantity,
+                        0
+                    )}
+            </span>
 
         </div>
 
@@ -454,7 +561,9 @@ function renderSelectedItems(subtotal, deliverySetup) {
             ${selectedProductIds.map(productId => {
 
                 const product =
-                    products.find(item => item.id === productId);
+                    products.find(
+                        item => item.id === productId
+                    );
 
                 if (!product) return "";
 
@@ -543,13 +652,28 @@ function renderSelectedItems(subtotal, deliverySetup) {
         <div class="estimate-breakdown">
 
             <div>
-                <span>Rental subtotal</span>
-                <strong>$${subtotal.toFixed(2)}</strong>
+
+                <span>
+                    ${rentalSubtotal}
+                </span>
+
+                <strong>
+                    $${subtotal.toFixed(2)}
+                </strong>
+
             </div>
 
+
             <div>
-                <span>Delivery & setup</span>
-                <strong>$${deliverySetup.toFixed(2)}</strong>
+
+                <span>
+                    ${deliverySetupText}
+                </span>
+
+                <strong>
+                    $${deliverySetup.toFixed(2)}
+                </strong>
+
             </div>
 
         </div>
@@ -676,8 +800,23 @@ categoryButtons.forEach(button => {
 });
 
 // =====================================================
+// UPDATE DYNAMIC CONTENT WHEN LANGUAGE CHANGES
+// =====================================================
+
+document.addEventListener(
+    "languageChanged",
+    () => {
+
+        filterProducts();
+        updateEstimate();
+
+    }
+);
+
+// =====================================================
 // INITIAL RENDER
 // =====================================================
 
 renderProducts(products);
 updateEstimate();
+

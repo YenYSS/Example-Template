@@ -106,39 +106,66 @@
 
             <nav class="desktop-nav">
 
-                <a href="index.html#home">
+                <a href="index.html#home" data-i18n="nav.home"> 
                     Home
                 </a>
 
-                <a href="index.html#how-it-works">
+                <a href="index.html#how-it-works" data-i18n="nav.howItWorks">
                     How It Works
                 </a>
 
-                <a href="index.html#rentals">
+                <a href="index.html#rentals" data-i18n="nav.rentals">
                     Rentals
                 </a>
 
-                <a href="index.html#events">
+                <a href="index.html#events" data-i18n="nav.events">
                     Events
                 </a>
 
-                <a href="index.html#gallery">
+                <a href="index.html#gallery" data-i18n="nav.gallery">
                     Gallery
                 </a>
 
-                <a href="index.html#faq">
+                <a href="index.html#faq" data-i18n="nav.faq">
                     FAQ
                 </a>
 
                 <a
                     href="catalog.html"
+                    data-i18n="nav.catalog"
                 >
                     Catalog
                 </a>
 
+                <div class="language-switcher">
+
+                    <button
+                        type="button"
+                        class="language-button active"
+                        data-language="en"
+                        aria-label="Switch to English"
+                    >
+                        EN
+                    </button>
+
+                    <span class="language-divider" aria-hidden="true">
+                        /
+                    </span>
+
+                    <button
+                        type="button"
+                        class="language-button"
+                        data-language="es"
+                        aria-label="Cambiar a español"
+                    >
+                        ES
+                    </button>
+
+                </div>
+
                 <a
                     href="index.html#quote"
-                    class="nav-button"
+                    class="nav-button" data-i18n="nav.getQuote"
                 >
                     Get a Quote
                 </a>
@@ -169,40 +196,67 @@
             id="mobile-nav"
         >
 
-            <a href="index.html#home">
+            <a href="index.html#home" data-i18n="nav.home">
                 Home
             </a>
 
-            <a href="index.html#how-it-works">
+            <a href="index.html#how-it-works" data-i18n="nav.howItWorks">
                 How It Works
             </a>
 
-            <a href="index.html#rentals">
+            <a href="index.html#rentals" data-i18n="nav.rentals">
                 Rentals
             </a>
 
-            <a href="index.html#events">
+            <a href="index.html#events" data-i18n="nav.events">
                 Events
             </a>
 
-            <a href="index.html#gallery">
+            <a href="index.html#gallery" data-i18n="nav.gallery">
                 Gallery
             </a>
 
-            <a href="index.html#faq">
+            <a href="index.html#faq" data-i18n="nav.faq">
                 FAQ
             </a>
 
             <a
                 href="catalog.html"
                 class="active"
+                data-i18n="nav.catalog"
             >
                 Catalog
             </a>
 
+            <div class="language-switcher">
+
+                <button
+                    type="button"
+                    class="language-button active"
+                    data-language="en"
+                    aria-label="Switch to English"
+                >
+                    EN
+                </button>
+
+                <span class="language-divider" aria-hidden="true">
+                    /
+                </span>
+
+                <button
+                    type="button"
+                    class="language-button"
+                    data-language="es"
+                    aria-label="Cambiar a español"
+                >
+                    ES
+                </button>
+
+            </div>
+
             <a
                 href="index.html#quote"
-                class="nav-button"
+                class="nav-button" data-i18n="nav.getQuote"
             >
                 Get a Quote
             </a>
@@ -638,6 +692,10 @@
     <script src="public/js/script.js"></script>
     <script src="public/js/products.js"></script>
     <script src="public/js/product.js"></script>
+
+    <script src="public/js/translations.js"></script>
+    <script src="public/js/language.js"></script>
+
     <script src="public/js/catalog.js"></script>
 
 </body>

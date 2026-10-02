@@ -4030,3 +4030,891 @@ ul {
         padding-top: 40px;
     }
 }
+
+
+/* =====================================================
+   QUOTE REQUEST — INTRO
+===================================================== */
+
+.quote-request-section {
+    padding: 110px 0 100px;
+}
+
+.quote-request-container {
+    width: min(
+        calc(100% - 48px),
+        var(--container)
+    );
+
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.quote-request-intro {
+    max-width: 760px;
+
+    margin-bottom: 56px;
+}
+
+.quote-request-eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 16px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    color: var(--coral);
+}
+
+.quote-request-intro h1 {
+    margin: 0 0 18px;
+
+    font-size: clamp(
+        2.6rem,
+        5vw,
+        4.4rem
+    );
+
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+
+    color: var(--dark);
+}
+
+.quote-request-intro p {
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: 1rem;
+    line-height: 1.7;
+
+    color: var(--dark);
+    opacity: 0.82;
+}
+
+
+/* =====================================================
+   INTRO ACCENT
+===================================================== */
+
+.quote-request-intro h1::after {
+    content: "";
+
+    display: block;
+
+    width: 56px;
+    height: 5px;
+
+    margin-top: 24px;
+
+    border-radius: 999px;
+
+    background: var(--yellow);
+}
+
+
+/* =====================================================
+   QUOTE REQUEST LAYOUT
+===================================================== */
+
+.quote-request-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.8fr);
+    gap: 64px;
+    align-items: start;
+}
+
+
+/* =====================================================
+   FORM WRAPPER
+===================================================== */
+
+.quote-request-form-wrapper {
+    min-width: 0;
+    padding: 42px;
+
+    background: var(--white);
+
+    border: 1px solid rgba(69, 105, 144, 0.16);
+    border-radius: 24px;
+
+    box-shadow:
+        0 16px 45px rgba(69, 105, 144, 0.08);
+}
+
+.quote-request-form-wrapper::before {
+    content: "";
+
+    display: block;
+
+    width: 48px;
+    height: 4px;
+
+    margin-bottom: 28px;
+
+    border-radius: 999px;
+
+    background: var(--mint-dark);
+}
+
+.quote-request-form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+/* =====================================================
+   FORM SECTIONS
+===================================================== */
+
+.quote-form-section {
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+}
+
+.quote-form-section legend {
+    margin-bottom: 8px;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: var(--blue-dark);
+}
+
+.quote-form-description {
+    max-width: 580px;
+
+    margin: 0 0 24px;
+
+    font-size: 0.92rem;
+    line-height: 1.6;
+
+    color: var(--blue);
+    opacity: 0.78;
+}
+
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.quote-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+/* =====================================================
+   FORM FIELDS
+===================================================== */
+
+.quote-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.quote-form-grid .quote-form-field {
+    margin-bottom: 0;
+}
+
+.quote-form-field label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.3;
+
+    color: var(--blue-dark);
+}
+
+.quote-form-field input,
+.quote-form-field textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid rgba(69, 105, 144, 0.18);
+    border-radius: 12px;
+
+    background: var(--white);
+
+    font-family: inherit;
+    font-size: 0.94rem;
+    line-height: 1.5;
+
+    color: var(--blue-dark);
+
+    outline: none;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+.quote-form-field input {
+    min-height: 52px;
+}
+
+.quote-form-field textarea {
+    min-height: 150px;
+
+    resize: vertical;
+}
+
+.quote-form-field input::placeholder,
+.quote-form-field textarea::placeholder {
+    color: var(--blue);
+    opacity: 0.48;
+}
+
+
+/* =====================================================
+   FIELD INTERACTIONS
+===================================================== */
+
+.quote-form-field input:hover,
+.quote-form-field textarea:hover {
+    border-color: rgba(69, 105, 144, 0.32);
+}
+
+.quote-form-field input:focus,
+.quote-form-field textarea:focus {
+    border-color: var(--coral);
+
+    box-shadow:
+        0 0 0 4px var(--coral-soft);
+}
+
+
+/* =====================================================
+   DATE INPUT
+===================================================== */
+
+.quote-form-field input[type="date"] {
+    color-scheme: light;
+}
+
+.quote-form-field input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+
+    opacity: 0.65;
+}
+
+
+/* =====================================================
+   FORM SECTION SEPARATOR
+===================================================== */
+
+.quote-form-section + .quote-form-section {
+    padding-top: 34px;
+
+    border-top: 1px solid rgba(69, 105, 144, 0.14);
+}
+
+/* =====================================================
+   QUOTE SUBMIT BUTTON
+===================================================== */
+
+.quote-submit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    width: 100%;
+    min-height: 56px;
+
+    margin-top: 4px;
+    padding: 15px 24px;
+
+    border: 0;
+    border-radius: 14px;
+
+    background: var(--coral);
+    color: var(--white);
+
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(239, 118, 122, 0.20);
+
+    transition:
+        background var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+/* =====================================================
+   QUOTE SUBMIT MESSAGE
+===================================================== */
+
+.quote-submit-message {
+    min-height: 22px;
+
+    margin: -20px 0 0;
+
+    font-size: 0.8rem;
+    line-height: 1.5;
+
+    text-align: center;
+
+    color: var(--green-dark);
+}
+
+/* =====================================================
+   BUTTON ICON
+===================================================== */
+
+.quote-submit-button i {
+    font-size: 0.85rem;
+
+    transition:
+        transform var(--transition);
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.quote-submit-button:hover {
+    background: var(--coral-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 26px rgba(239, 118, 122, 0.25);
+}
+
+.quote-submit-button:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =====================================================
+   ACTIVE
+===================================================== */
+
+.quote-submit-button:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 6px 14px rgba(239, 118, 122, 0.18);
+}
+
+
+/* =====================================================
+   KEYBOARD FOCUS
+===================================================== */
+
+.quote-submit-button:focus-visible {
+    outline: 3px solid var(--coral);
+    outline-offset: 4px;
+}
+
+/* =====================================================
+   QUOTE SUMMARY
+===================================================== */
+
+.quote-summary {
+    position: sticky;
+    top: 120px;
+
+    padding: 32px;
+
+    background: var(--white);
+
+    border: 1px solid rgba(69, 105, 144, 0.16);
+    border-radius: 24px;
+
+    box-shadow:
+        0 14px 40px rgba(69, 105, 144, 0.08);
+}
+
+
+/* =====================================================
+   SUMMARY HEADER
+===================================================== */
+
+.quote-summary-header {
+    padding-bottom: 24px;
+
+    border-bottom: 1px solid rgba(69, 105, 144, 0.12);
+}
+
+.quote-summary-eyebrow {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    color: var(--coral);
+}
+
+.quote-summary-header h2 {
+    margin: 0 0 8px;
+
+    font-size: 1.65rem;
+    line-height: 1.15;
+
+    color: var(--blue-dark);
+}
+
+.quote-summary-header p {
+    margin: 0;
+
+    font-size: 0.88rem;
+    line-height: 1.6;
+
+    color: var(--blue);
+    opacity: 0.78;
+}
+
+
+/* =====================================================
+   SELECTED ITEMS
+===================================================== */
+
+.quote-selected-items {
+    padding: 24px 0;
+}
+
+.quote-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.quote-selected-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid rgba(69, 105, 144, 0.10);
+}
+
+.quote-selected-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.quote-selected-item-info strong {
+    font-size: 0.9rem;
+    line-height: 1.3;
+
+    color: var(--blue-dark);
+}
+
+.quote-selected-item-info span {
+    font-size: 0.78rem;
+    line-height: 1.3;
+
+    color: var(--blue);
+    opacity: 0.7;
+}
+
+.quote-selected-item > strong {
+    flex-shrink: 0;
+
+    font-size: 0.88rem;
+
+    color: var(--blue-dark);
+}
+
+
+/* =====================================================
+   SUMMARY BREAKDOWN
+===================================================== */
+
+.quote-summary-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding-top: 18px;
+}
+
+.quote-summary-breakdown > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.quote-summary-breakdown span {
+    font-size: 0.8rem;
+    color: var(--blue);
+}
+
+.quote-summary-breakdown strong {
+    font-size: 0.82rem;
+    color: var(--blue-dark);
+}
+
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.quote-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 28px 12px;
+
+    text-align: center;
+}
+
+.quote-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+    margin-bottom: 16px;
+
+    border-radius: 14px;
+
+    background: var(--mint);
+
+    color: var(--blue);
+}
+
+.quote-empty-icon i {
+    font-size: 1rem;
+}
+
+.quote-empty-state p {
+    margin: 0 0 6px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    color: var(--blue-dark);
+}
+
+.quote-empty-state span {
+    max-width: 260px;
+
+    font-size: 0.78rem;
+    line-height: 1.55;
+
+    color: var(--blue);
+    opacity: 0.7;
+}
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+.quote-summary-total {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(69, 105, 144, 0.12);
+}
+
+.quote-summary-total span {
+    font-size: 0.82rem;
+    color: var(--blue);
+}
+
+.quote-summary-total strong {
+    font-size: 1.45rem;
+    line-height: 1;
+
+    color: var(--blue-dark);
+}
+
+
+/* =====================================================
+   SUMMARY NOTE
+===================================================== */
+
+.quote-summary-note {
+    margin: 14px 0 0;
+
+    font-size: 0.72rem;
+    line-height: 1.55;
+
+    color: var(--blue);
+    opacity: 0.65;
+}
+
+/* =====================================================
+   QUOTE REQUEST — TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .quote-request-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .quote-summary {
+        position: static;
+    }
+
+}
+
+/* =====================================================
+   QUOTE REQUEST — MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    /* ---------------------------------------------
+       MAIN LAYOUT
+    --------------------------------------------- */
+
+    .quote-request-layout {
+        gap: 24px;
+    }
+
+
+    /* ---------------------------------------------
+       FORM CARD
+    --------------------------------------------- */
+
+    .quote-request-form-wrapper {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+
+    .quote-request-form {
+        gap: 32px;
+    }
+
+
+    /* ---------------------------------------------
+       FORM SECTIONS
+    --------------------------------------------- */
+
+    .quote-form-section + .quote-form-section {
+        padding-top: 28px;
+    }
+
+    .quote-form-section legend {
+        font-size: 1.25rem;
+    }
+
+    .quote-form-description {
+        margin-bottom: 20px;
+        font-size: 0.88rem;
+    }
+
+
+    /* ---------------------------------------------
+       FORM GRID
+    --------------------------------------------- */
+
+    .quote-form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .quote-form-grid .quote-form-field {
+        margin-bottom: 20px;
+    }
+
+
+    /* ---------------------------------------------
+       INPUTS
+    --------------------------------------------- */
+
+    .quote-form-field input,
+    .quote-form-field textarea {
+        padding: 13px 14px;
+        border-radius: 10px;
+    }
+
+    .quote-form-field input {
+        min-height: 50px;
+    }
+
+    .quote-form-field textarea {
+        min-height: 140px;
+    }
+
+
+    /* ---------------------------------------------
+       SUBMIT BUTTON
+    --------------------------------------------- */
+
+    .quote-submit-button {
+        min-height: 54px;
+        border-radius: 12px;
+    }
+
+
+    /* ---------------------------------------------
+       SUMMARY CARD
+    --------------------------------------------- */
+
+    .quote-summary {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+
+    .quote-summary-header {
+        padding-bottom: 20px;
+    }
+
+    .quote-summary-header h2 {
+        font-size: 1.45rem;
+    }
+
+    .quote-selected-items {
+        padding: 20px 0;
+    }
+
+
+    /* ---------------------------------------------
+       SUMMARY TOTAL
+    --------------------------------------------- */
+
+    .quote-summary-total strong {
+        font-size: 1.3rem;
+    }
+
+
+/* ---------------------------------------------
+   INTRO
+--------------------------------------------- */
+
+.quote-request-section {
+    padding: 80px 0 70px;
+}
+
+.quote-request-container {
+    width: min(
+        calc(100% - 32px),
+        var(--container)
+    );
+}
+
+.quote-request-intro {
+    margin-bottom: 36px;
+}
+
+.quote-request-intro h1 {
+    font-size: clamp(
+        2.3rem,
+        11vw,
+        3.2rem
+    );
+}
+
+.quote-request-intro p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+}
+
+
+/* =====================================================
+   LANGUAGE SWITCHER
+===================================================== */
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    margin-left: 8px;
+}
+
+.language-button {
+    padding: 5px 3px;
+
+    border: 0;
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    color: var(--blue);
+    letter-spacing: 0.05em;
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition),
+        opacity var(--transition);
+}
+
+.language-button:hover {
+    color: var(--coral);
+}
+
+.language-button.active {
+    color: var(--coral);
+}
+
+.language-divider {
+    font-size: 0.7rem;
+
+    color: var(--blue);
+    opacity: 0.35;
+
+    user-select: none;
+}
+
+/* =====================================================
+   MOBILE LANGUAGE SWITCHER
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .mobile-nav .language-switcher {
+        justify-content: center;
+
+        width: 100%;
+
+        margin: 8px 0;
+        padding: 10px 0;
+    }
+
+}
